@@ -6,5 +6,4 @@ Cmake
 Cython
 dlib
 docutils
-docutils
 pygments
