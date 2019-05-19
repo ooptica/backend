@@ -1,0 +1,8 @@
+Fabric
+Flask-WTF
+WTForms
+coverage
+Pillow
+opencv-python
+Flask
+requests
