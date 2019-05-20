@@ -15,6 +15,10 @@ app.config.from_object('config')
 def home():
     return app.send_static_file("index.html")
     
+@app.route('/face-filter', methods=['GET'])
+def face_filter():
+    return app.send_static_file("face-filter.html")
+    
 @app.errorhandler(404)
 def not_found_error(error):
     return app.send_static_file("404.html"), 404

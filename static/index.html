@@ -1,30 +1,716 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="content-language" content="en-EN" />
-        
-        <title>JEELIZ FACE FILTER : THREE.JS CUBE DEMO WITH THREE.JS HELPER AND ES6</title>
-        
-        <!-- INCLUDE THREE.JS -->
-        <script type="text/javascript" src="js/three.min.js"></script>
+<html lang="en">
+<head>
+	<!--===== Meta Tag =====-->
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="Runaway - Personal Portfolio HTML Template">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="business, agency, blog, cv, creative, html, one page, personal, portfolio, resume, responsive, bootstrap, photography, designer, developer">
+	<meta name="author" content="root">
 
-        <!-- INCLUDE JEELIZ THREE.JS HELPER -->
-        <script type="text/javascript" src="js/JeelizThreejsHelper.js"></script>
+	 <!--	Css Links
+    ==================================================-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery.pagepiling.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/flaticon.css">
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/color.css" id="color-change">
 
-        <!-- INCLUDE JEELIZRESIZER -->
-        <script type="text/javascript" src="js/JeelizResizer.js"></script>
+     <!-- Favicon 
+    ==================================================-->
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.ico">
 
-        <!-- INCLUDE DEMO SCRIPT. TYPE SHOULD BE SET TO MODULE FOR ES6 -->
-        <script type="module" src="js/demo.js"></script>
+      <!--	Title
+    ==================================================-->
+	<title>Runaway - Personal Portfolio HTML Template</title>
 
-        <!-- INCLUDE FORK ME ON GITHUB BANNER -->
-        <script type="text/javascript" src="js/widget.js"></script>
+</head>
+<body id="top" class="page-load">
+	<!--	Preloader
+	==================================================-->
+	<div class="preloader">
+		<div class="lds-css ng-scope">
+			<div class="lds-spinner" style="height:100%">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<!-- Color Settings Start
+	==================================================-->
+	<div class="color-panel">
+		<div class="on-panel color_white bg_primary">
+			<div class="text-center icon-spinner">
+			  <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+			</div>
+		</div>
+		<div class="panel-box">
+			<span class="panel-title">Theme Colors</span>
+			<ul class="color-box">
+				<li class="default" data-name="default" data-path="css/color.css" data-image="images/logo/29.png" data-target="images/logo/29.png"></li>
+				<li class="color_2" data-name="color_2" data-path="css/color/color-1.css" data-image="images/logo/30.png" data-target="images/logo/30.png"></li>
+				<li class="color_3" data-name="color_3" data-path="css/color/color-2.css" data-image="images/logo/31.png" data-target="images/logo/31.png"></li>
+				<li class="color_4" data-name="color_4" data-path="css/color/color-3.css" data-image="images/logo/32.png" data-target="images/logo/32.png"></li>
+				<li class="color_5" data-name="color_5" data-path="css/color/color-4.css" data-image="images/logo/33.png" data-target="images/logo/33.png"></li>
+				<li class="color_6" data-name="color_6" data-path="css/color/color-5.css" data-image="images/logo/34.png" data-target="images/logo/34.png"></li>
+				<li class="color_7" data-name="color_7" data-path="css/color/color-6.css" data-image="images/logo/35.png" data-target="images/logo/35.png"></li>
+				<li class="color_8" data-name="color_8" data-path="css/color/color-7.css" data-image="images/logo/36.png" data-target="images/logo/36.png"></li>
+				<li class="color_9" data-name="color_9" data-path="css/color/color-8.css" data-image="images/logo/37.png" data-target="images/logo/37.png"></li>
+				<li class="color_10" data-name="color_10" data-path="css/color/color-9.css" data-image="images/logo/38.png" data-target="images/logo/38.png"></li>
+				<li class="color_11" data-name="color_11" data-path="css/color/color-10.css" data-image="images/logo/39.png" data-target="images/logo/39.png"></li>
+				<li class="color_12" data-name="color_12" data-path="css/color/color-11.css" data-image="images/logo/40.png" data-target="images/logo/40.png"></li>
+				<li class="color_13" data-name="color_13" data-path="css/color/color-12.css" data-image="images/logo/41.png" data-target="images/logo/41.png"></li>
+				<li class="color_14" data-name="color_14" data-path="css/color/color-13.css" data-image="images/logo/42.png" data-target="images/logo/42.png"></li>
+			</ul>
+		</div>
+		<div class="template_style">
+			<span class="layout_title">Template Style</span>
+			<ul>
+				<li><a class="btn_link" href="index-1.html" target="blank">White Version</a></li>
+				<li><a class="btn_link" href="index-2.html" target="blank">Black Version</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--  Color Settings End
+	==============================================-->
+	<!--	Start Sidebar
+	==================================================-->
+	<div id="mysidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="flaticon-close-button"></i></a>
+	  <img class="nav-logo" src="images/logo/ooptica_logo_s.png" alt="image">
+	  	<ul id="menu">
+			<li data-menuanchor="page1" class="active"><a href="#page1">Home</a></li>
+			<li data-menuanchor="page2"><a href="#page2">About</a></li>
+			<li data-menuanchor="page3"><a href="#page3">Resume</a></li>
+			<li data-menuanchor="page4"><a href="#page4">Services</a></li>
+			<li data-menuanchor="page7"><a href="#page5">Team</a></li>
+			<li data-menuanchor="page9"><a href="#page6">Contact</a></li>
+		</ul>
+	</div>
+	<div class="sidebar bg_deepblack">
+		<div class="logo text-center"><a href="#page1"><img class="nav-logo" src="images/logo/ooptica_logo_s.png" alt="logo"></a></div>
+		<span style="cursor:pointer" onclick="openNav()">&#9776;</span>
+		<div class="socal_media mt_60">
+			<ul>
+				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>			
+	</div>
+	<div class="contact_massage bg_deepblack">
+		<a href="#page9"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+	</div>
+	<!--	End Sidebar
+	=======================================================-->
+	<div id="pagepiling">
+	    <!--	Start Slider
+		===================================================-->
+		<div id="slider" class="section bg_white">
+			<div class="line-container">
+				<div class="row">
+					<div class="col-md-3 col-lg-3"><div class="liner"></div></div>
+					<div class="col-md-3 col-lg-3"><div class="liner"></div></div>
+					<div class="col-md-3 col-lg-3"><div class="liner"></div></div>
+					<div class="col-md-3 col-lg-3"><div class="liner"></div></div>
+				</div>
+			</div>
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			  <ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
 
-        <link rel="stylesheet" href="css/style.css" type="text/css" />
-    </head>
-    
-    <body style='color: white'>
-        <canvas width="600" height="600" id='jeeFaceFilterCanvas'></canvas>
-    </body>
+				<div class="carousel-mycaption">
+					<h1 class="mb_20">Looking further with <span class="color_default">OOptica</span></h1>
+					<h4 class="mb_20">We provide fast and reliable cognitive services for face segmentation and categorization. 
+						OOptica focuses on suggesting glasses for users based on their facial structure. 
+						The analysis and suggestion is done with our ever developing algorithm. Facial features are extracted and analyzed thoroughly in order to find the optimal fit for all.</h4 >
+					<a class="btn btn-default" href="#">Take A Look</a>
+				</div>
+
+			  <div class="carousel-inner overlay_three">
+
+					<div class="carousel-item active">
+			      <div class="overlay_one pattan"><img  class="" src="images/slider/01.jpg" alt="slide image"></div>
+					</div>
+					
+			    <div class="carousel-item">
+			      <div class="overlay_one pattan"><img  class="" src="images/slider/02.jpg" alt="slide image"></div>
+					</div>
+					
+			    <div class="carousel-item">
+			      <div class="overlay_one pattan"><img  class="" src="images/slider/03.jpg" alt="slide image"></div>
+			    </div>
+			    
+				</div>
+			</div>
+		</div>
+	    <!--	End Slider
+		===================================================-->
+		<!--	Start About
+		===================================================-->
+	    <div id="about" class="section bg_black pp-scrollable">
+	    	<div class="container-fluid">
+	    		<div class="row">
+	    			<div class="about2">
+	    				<div class="col-md-12 col-lg-12">
+	    					<div class="row">
+	    						<div class="col-md-4 col-lg-4">
+	    							<div class="overlay_one"><img src="images/about/01.jpg" alt="image"></div>
+	    						</div>
+	    						<div class="col-md-8 col-lg-8">
+	    							<div class="about_myself pb_60">
+	    								<!--	Start Title
+	    								================================-->
+	    								<div class="main_title my_60">
+											<h2 class="title color_white">About Us</h2>
+											<p class="mt_15 color_lightgray">Interdum a etiam sagittis vehicula porta. Massa felis eros quam blandit nulla dolor habitant.</p>											
+										</div>
+										<!--	End Title
+	    								================================-->
+										<div class="row">
+		    								<div class="col-md-6 col-lg-6">
+												<div class="myself color_secondery">
+													<p>Sodales iaculis est Scelerisque sociis magna dolor pulvinar magnis. Varius praesent suscipit. Donec morbi feugiat placerat gravida porttitor natoque nonummy parturient posuere. Magnis suspendisse parturient. Magna ultricies nostra nunc magna. Sodales etiam arcu suscipit, mollis. Aenean tempor eu ipsum nisi sociosqu lorem hymenaeos sapien. Aptent maecenas ac ante molestie habitant.</p>
+													
+													<p class="pt_30">Duis vulputate nisi nam sem penatibus parturient volutpat justo phasellus. Netus. Hac montes tempor lorem tempor tincidunt vehicula velit. Tellus. Class aenean leo elit maecenas. Vehicula sagittis. Curae; eget lacus. Fames neque diam elementum risus eleifend dui tortor netus turpis.</p>
+												</div>
+				    						</div>
+				    						<div class="col-md-6 col-lg-6">
+				    							<div class="personal_info color_lightgray">
+				    								<ul>
+				    									<li><span class="color_secondery">Name :</span> Austin Jackson</li>
+														<li><span class="color_secondery">Email :</span> yourdomainname@gmail.com</li>
+														<li><span class="color_secondery">Phone :</span> +00 61 700 800</li>
+														<li><span class="color_secondery">Date of Birth :</span> 14 December 1993</li>
+														<li><span class="color_secondery">Blood Group :</span> A+</li>
+														<li><span class="color_secondery">Address :</span> Mouroubra WA 6472, Australia.</li>		
+				    								</ul>
+				    							</div>
+				    						</div>
+		    							</div>
+	    							</div>
+	    						</div>
+	    					</div>	
+	    				</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!--	End About
+		===================================================-->
+		<!--	Start Education and Experience
+		===================================================-->
+	    <div id="education" class="section bg_black pp-scrollable">
+	    	<div class="container-fluid">
+	    		<div class="row">
+	    			<div class="col-md-12 col-lg-12">
+	    				<div class="education_experience ml_105 color_lightgray">
+	    					<!--	Start Title
+	    					================================-->
+		    				<div class="main_title my_60">
+								<h2 class="title color_white">Education & Experience</h2>
+								<p class="mt_15 color_lightgray">Interdum a etiam sagittis vehicula porta. Massa felis eros quam blandit nulla dolor habitant.</p>											
+							</div>
+							<!--	End Title
+	    					================================-->
+		    				<ul class="nav nav-pills pb_60" id="pills-tab" role="tablist">
+							  <li class="nav-item">
+							    <a class="btn btn-default active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Experience</a>
+							  </li>
+							  <li class="nav-item mx_10">
+							    <a class="btn btn-default" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Education</a>
+							  </li>
+							</ul>
+							<div class="tab-content" id="pills-tabContent">
+							  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+						  		<div class="company pb_60">
+								  	<div class="row">
+								  		<div class="col-md-12 col-lg-4">
+								  			<h1 class="color_lightgray font-weight-bold">01.</h1>
+								  			<h4 class="color_white font-weight-bold">Work in company “themeforest”</h4>
+								  			<span class="color_secondery">2017 -2018</span>
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<p>Accumsan nibh. Amet erat curae; scelerisque euismod arcu scelerisque pede sociis molestie sociosqu mus consequat feugiat vulputate. Commodo semper porta. Sed. Ultrices ultrices orci pharetra. Per et mi sem sem facilisi nonummy. Vivamus tortor arcu semper massa est accumsan. Litora nullam Integer aenean. Vivamus tortor arcu semper massa est accumsan.</p>
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<img src="images/education/01.jpg" alt="image">
+								  		</div>
+							  		</div>
+							  	</div>
+							  	<div class="company pb_60">
+							  		<div class="row">
+								  		<div class="col-md-12 col-lg-4">
+								  			<p>Accumsan nibh. Amet erat curae; scelerisque euismod arcu scelerisque pede sociis molestie sociosqu mus consequat feugiat vulputate. Commodo semper porta. Sed. Ultrices ultrices orci pharetra. Per et mi sem sem facilisi nonummy. Vivamus tortor arcu semper massa est accumsan. Litora nullam Integer aenean. Vivamus tortor arcu semper massa est accumsan. </p>
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<img src="images/education/02.jpg" alt="image">
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<h1 class="color_lightgray font-weight-bold">02.</h1>
+								  			<h4 class="color_white font-weight-bold">Work in company “Envato”</h4>
+								  			<span class="color_secondery">2016 - 2017</span>
+								  		</div>
+								  	</div>
+							  	</div>
+							  	<div class="company pb_60">
+							  		<div class="row">
+							  			<div class="col-md-12 col-lg-4">
+								  			<img src="images/education/03.jpg" alt="image">
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<h1 class="color_lightgray font-weight-bold">03.</h1>
+								  			<h4 class="color_white font-weight-bold">Work in company “wcschoole”</h4>
+								  			<span class="color_secondery">2013 - 2015</span>
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<p>Accumsan nibh. Amet erat curae; scelerisque euismod arcu scelerisque pede sociis molestie sociosqu mus consequat feugiat vulputate. Commodo semper porta. Sed. Ultrices ultrices orci pharetra. Per et mi sem sem facilisi nonummy. Vivamus tortor arcu semper massa est accumsan. Litora nullam Integer aenean. Vivamus tortor arcu semper massa est accumsan.</p>
+								  			
+								  		</div>
+								  	</div>
+							  	</div>
+							  </div>
+							  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+							  	<div class="company pb_60">
+							  		<div class="row">
+								  		<div class="col-md-12 col-lg-4">
+								  			<img src="images/education/04.jpg" alt="image">
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<p>Accumsan nibh. Amet erat curae; scelerisque euismod arcu scelerisque pede sociis molestie sociosqu mus consequat feugiat vulputate. Commodo semper porta. Sed. Ultrices ultrices orci pharetra. Per et mi sem sem facilisi nonummy. Vivamus tortor arcu semper massa est accumsan. Litora nullam Integer aenean. Vivamus tortor arcu semper massa est accumsan.</p>
+								  			
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<h1 class="color_lightgray font-weight-bold">01.</h1>
+								  			<h4 class="color_white font-weight-bold">Complete course “Wordpress”</h4>
+								  			<span class="color_secondery">2015 - 2016</span>
+								  		</div>
+								  	</div>
+							  	</div>
+							  	<div class="company pb_60">
+							  		<div class="row">
+								  		<div class="col-md-12 col-lg-4">
+								  			<h1 class="color_lightgray font-weight-bold">02.</h1>
+								  			<h4 class="color_white font-weight-bold">Complete course “PHP”</h4>
+								  			<span class="color_secondery">2011 - 2013</span>
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<img src="images/education/05.jpg" alt="image">
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<p>Accumsan nibh. Amet erat curae; scelerisque euismod arcu scelerisque pede sociis molestie sociosqu mus consequat feugiat vulputate. Commodo semper porta. Sed. Ultrices ultrices orci pharetra. Per et mi sem sem facilisi nonummy. Vivamus tortor arcu semper massa est accumsan. Litora nullam Integer aenean. Vivamus tortor arcu semper massa est accumsan.</p>
+								  			
+								  		</div>
+								  	</div>
+							  	</div>
+							  	<div class="company pb_60">
+							  		<div class="row">
+							  			<div class="col-md-12 col-lg-4">
+								  			<p>Accumsan nibh. Amet erat curae; scelerisque euismod arcu scelerisque pede sociis molestie sociosqu mus consequat feugiat vulputate. Commodo semper porta. Sed. Ultrices ultrices orci pharetra. Per et mi sem sem facilisi nonummy. Vivamus tortor arcu semper massa est accumsan. Litora nullam Integer aenean. Vivamus tortor arcu semper massa est accumsan.</p>
+								  			
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<h1 class="color_lightgray font-weight-bold">03.</h1>
+								  			<h4 class="color_white font-weight-bold">Complete course “HTML & CSS”</h4>
+								  			<span class="color_secondery">2008 - 2010</span>
+								  		</div>
+								  		<div class="col-md-12 col-lg-4">
+								  			<img src="images/education/06.jpg" alt="image">
+								  		</div>
+								  	</div>
+							  	</div>
+							  </div>
+							</div>
+		    			</div>
+	    			</div>
+	    		</div>
+	    		<div class="row bg_deepblack">
+	    			<div class="col-md-12 col-lg-12">
+	    				<div class="video my_60">
+							<div class="row">
+								<div class="col-md-12 col-lg-7">
+									<div class="video_content ml_105">
+										<h2 class="color_default">My professional video</h2>
+										<p class="color_white">Suscipit malesuada venenatis. Orci a enim sapien ad elit ac. Pretium class. Quis ad Fusce et, mus eleifend nibh neque at ullamcorper hac eu est. Ad. Dignissim lorem nostra. Et non, posuere pharetra fames. Facilisi. Venenatis integer pharetra gravida.</p>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-5">
+									<div class="personal_video">
+										<img src="images/video.jpg" alt="image">
+										<a class="video-popup" href="https://vimeo.com/134660574" title="video popup">
+										<i class="fa fa-play" aria-hidden="true"></i></a>
+										<div class="loader xy-center">
+											<div class="loader-inner ball-scale-multiple">
+												<div></div>
+												<div></div>
+												<div></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!--	End Education and Experience
+		===================================================-->
+		<!--	Start Services
+		===================================================-->
+	    <div id="services" class="section bg_black pp-scrollable">
+	    	<div class="container">
+	    		<div class="services my_60">
+	    			<div class="row">
+		    			<div class="col-md-12 col-lg-12">
+		    				<!--	Start Title
+		    				================================-->
+		    				<div class="main_title pb_60">
+								<h2 class="title color_white">Services</h2>
+								<p class="mt_15 color_lightgray">Interdum a etiam sagittis vehicula porta. Massa felis eros quam blandit nulla dolor habitant.</p>											
+							</div>
+							<!--	End Title
+		    				================================-->
+		    			</div>
+		    		</div>
+		    		<div class="services_item owl-carousel">
+						<div class="service_one text-center p_30 bg_deepblack color_secondery">
+							<div class="srvicon bg_default color_white mx-auto mb_20"><span class="flaticon-website-design-symbol"></span></div>
+							<h3 class="font-weight-bold color_white">Web Design</h3>
+							<p>Dignissim iaculis nostra urna congue elit vitae cra convallis. Mollis mollis purus taciti. Pede bibendum. Habitant sit imperdiet ia integer bibendum dui.</p>
+						</div>
+						<div class="service_one text-center p_30 bg_deepblack color_secondery">
+							<div class="srvicon bg_default color_white mx-auto mb_20"><span class="flaticon-programming"></span></div>
+							<h3 class="font-weight-bold color_white">Web Development</h3>
+							<p>Dignissim iaculis nostra urna congue elit vitae cra convallis. Mollis mollis purus taciti. Pede bibendum. Habitant sit imperdiet ia integer bibendum dui.</p>
+						</div>
+						<div class="service_one text-center p_30 bg_deepblack color_secondery">
+							<div class="srvicon bg_default color_white mx-auto mb_20"><span class="flaticon-wordpress-logo"></span></div>
+							<h3 class="font-weight-bold color_white">Wordpress</h3>
+							<p>Dignissim iaculis nostra urna congue elit vitae cra convallis. Mollis mollis purus taciti. Pede bibendum. Habitant sit imperdiet ia integer bibendum dui.</p>
+						</div>
+						<div class="service_one text-center p_30 bg_deepblack color_secondery">
+							<div class="srvicon bg_default color_white mx-auto mb_20"><span class="flaticon-internet"></span></div>
+							<h3 class="font-weight-bold color_white">Branding</h3>
+							<p>Dignissim iaculis nostra urna congue elit vitae cra convallis. Mollis mollis purus taciti. Pede bibendum. Habitant sit imperdiet ia integer bibendum dui.</p>
+						</div>
+						<div class="service_one text-center p_30 bg_deepblack color_secondery">
+							<div class="srvicon bg_default color_white mx-auto mb_20"><span class="flaticon-shopping-cart"></span></div>
+							<h3 class="font-weight-bold color_white">Opencart</h3>
+							<p>Dignissim iaculis nostra urna congue elit vitae cra convallis. Mollis mollis purus taciti. Pede bibendum. Habitant sit imperdiet ia integer bibendum dui.</p>
+						</div>
+						<div class="service_one text-center p_30 bg_deepblack color_secondery">
+							<div class="srvicon bg_default color_white mx-auto mb_20"><span class="flaticon-editor"></span></div>
+							<h3 class="font-weight-bold color_white">Graghic Design</h3>
+							<p>Dignissim iaculis nostra urna congue elit vitae cra convallis. Mollis mollis purus taciti. Pede bibendum. Habitant sit imperdiet ia integer bibendum dui.</p>
+						</div>
+		    		</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!--	End Services
+		===================================================-->
+	
+		<!--	Start Team
+		===================================================-->
+	    <div id="team" class="section bg_black pp-scrollable">
+	    	<div class="container">
+	    		<div class="team my_60">
+	    			<div class="row">
+		    			<div class="col-md-12 col-lg-12">
+		    				<!--	Start Title
+		    				================================-->
+		    				<div class="main_title pb_60">
+								<h2 class="title color_white">Team</h2>
+								<p class="mt_15 color_lightgray">Interdum a etiam sagittis vehicula porta. Massa felis eros quam blandit nulla dolor habitant.</p>											
+							</div>
+							<!--	End Title
+		    				================================-->
+		    			</div>
+		    		</div>
+		    		<div class="row">
+		    			<div class="col-md-12 col-lg-12">
+		    				<div class="team_member owl-carousel">
+		    					<div class="member">
+	    							<img src="images/team/01.jpg" alt="image">
+	    							<div class="data">
+	    								<h4 class="bg_default color_primary font-weight-bold m-0">Wiliam Jonshon</h4>
+	    								<strong class="bg_primary color_white">Designer</strong>
+	    							</div>
+	    							<div class="hover_overlay">
+	    								<div class="border">
+	    									<h4 class="color_default font-weight-bold text-center text-uppercase">Wiliam Jonshon</h4>
+		    								<strong class="color_white text-center d-block mb_15">Designer</strong>
+		    								<p class="color_white">Nisl vitae consectetuer dictumst mauris vitae, purus torquent praesent pharetra consectetuer nullam fames pede sapien litora condimentum pretium volutpat magnis facilisi hendrerit.</p>
+		    								<div class="socal_media">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+	    								</div>
+	    							</div>
+	    						</div>
+			    				<div class="member">
+	    							<img src="images/team/02.jpg" alt="image">
+	    							<div class="data">
+	    								<h4 class="bg_default color_primary font-weight-bold m-0">Stefen Glorry</h4>
+	    								<strong class="bg_primary color_white">UX/UI Designer</strong>
+	    							</div>
+	    							<div class="hover_overlay">
+	    								<div class="border">
+	    									<h4 class="color_default font-weight-bold text-center text-uppercase">Stefen Glorry</h4>
+		    								<strong class="color_white text-center d-block mb_15">UX/UI Designer</strong>
+		    								<p class="color_white">Nisl vitae consectetuer dictumst mauris vitae, purus torquent praesent pharetra consectetuer nullam fames pede sapien litora condimentum pretium volutpat magnis facilisi hendrerit.</p>
+		    								<div class="socal_media">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+	    								</div>
+	    							</div>
+	    						</div>
+			    				<div class="member">
+	    							<img src="images/team/03.jpg" alt="image">
+	    							<div class="data">
+	    								<h4 class="bg_default color_primary font-weight-bold m-0">Robert Mark</h4>
+	    								<strong class="bg_primary color_white">Developer</strong>
+	    							</div>
+	    							<div class="hover_overlay">
+	    								<div class="border">
+	    									<h4 class="color_default font-weight-bold text-center text-uppercase">Robert Mark</h4>
+		    								<strong class="color_white text-center d-block mb_15">Developer</strong>
+		    								<p class="color_white">Nisl vitae consectetuer dictumst mauris vitae, purus torquent praesent pharetra consectetuer nullam fames pede sapien litora condimentum pretium volutpat magnis facilisi hendrerit.</p>
+		    								<div class="socal_media">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+	    								</div>
+	    							</div>
+	    						</div>
+	    						<div class="member">
+	    							<img src="images/team/04.jpg" alt="image">
+	    							<div class="data">
+	    								<h4 class="bg_default color_primary font-weight-bold m-0">Donna Patricia</h4>
+	    								<strong class="bg_primary color_white">Graphic Designer</strong>
+	    							</div>
+	    							<div class="hover_overlay">
+	    								<div class="border">
+	    									<h4 class="color_default font-weight-bold text-center text-uppercase">Donna Patricia</h4>
+		    								<strong class="color_white text-center d-block mb_15">Graphic Designer</strong>
+		    								<p class="color_white">Nisl vitae consectetuer dictumst mauris vitae, purus torquent praesent pharetra consectetuer nullam fames pede sapien litora condimentum pretium volutpat magnis facilisi hendrerit.</p>
+		    								<div class="socal_media">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+	    								</div>
+	    							</div>
+	    						</div>
+		    				</div> 
+		    			</div>
+		    		</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!--	End Team
+		===================================================-->
+
+		<!--	Start Contact
+		===================================================-->
+	    <div id="contact" class="section bg_black pp-scrollable">
+	    	<div class="container">
+	    		<div class="contact pt_60">
+	    			<div class="row">
+		    			<div class="col-md-12 col-lg-12">
+		    				<!--	Start Title
+		    				================================-->
+		    				<div class="main_title pb_60">
+								<h2 class="title color_white">Contact</h2>
+								<p class="mt_15 color_lightgray">Interdum a etiam sagittis vehicula porta. Massa felis eros quam blandit nulla dolor habitant.</p>											
+							</div>
+							<!--	End Title
+		    				================================-->
+		    			</div>
+		    		</div>
+		    		<div class="row">
+		    			<div class="col-md-5 col-lg-4">
+		    				<div class="contact_info">
+		    					<ul>
+		    						<li>
+		    							<div class="contact_icon float-left"><i class="fa fa-phone" aria-hidden="true"></i></div>
+		    							<div class="contact_text">
+		    								<h6 class="font-weight-bold color_white">CALL</h6>
+		    								<span class="color_secondery">+6103 6000 8590</span>
+		    							</div>
+		    						</li>
+		    						<li>
+		    							<div class="contact_icon float-left"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+		    							<div class="contact_text">
+		    								<h6 class="font-weight-bold color_white">EMAIL</h6>
+		    								<span class="color_secondery">info@yourdomain.com</span>
+		    							</div>
+		    						</li>
+		    						<li>
+		    							<div class="contact_icon float-left"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+		    							<div class="contact_text">
+		    								<h6 class="font-weight-bold color_white">ADDRESS</h6>
+		    								<span class="color_secondery">210 Elizabeth St, Melbourne VIC 3000, Australia.</span>
+		    							</div>
+		    						</li>
+		    					</ul>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-7 col-lg-8">
+		    				<form class="form contact_message pb_60" id="contact-form" action="email.php" method="post">
+								<div class="row">
+									<div class="col-md-6 col-lg-6">
+										<div class="form-group">
+											<input class="form-control bg_black" type="text" name="name" placeholder="Your Name" />
+										</div>
+									</div>
+									<div class="col-md-6 col-lg-6">
+										<div class="form-group">
+											<input class="form-control bg_black" type="email" name="email" placeholder="Email Address" />
+										</div>
+									</div>
+									<div class="col-md-12 col-lg-12">
+										<div class="form-group">
+										  <input class="form-control bg_black" type="text" name="subject" placeholder="Subject"/>
+										</div>
+									</div>
+									<div class="col-md-12 col-lg-12">
+										<div class="form-group">
+											<textarea class="form-control bg_black" name="message" rows="7" placeholder="Message"></textarea>
+										</div>							
+									</div>
+									<div class="col-md-12 col-lg-12">
+										<div class="form-group">
+											<input class="btn btn-default" id="send" value="Send Massage" type="submit"/>
+										</div>
+									</div>
+									<div class="col-md-12 col-lg-12">
+										<div class="error-handel">
+											<div id="success">Your email sent Successfully, Thank you.</div>
+											<div id="error"> Error occurred while sending email. Please try again later.</div>
+										</div>
+									</div>
+								</div>
+							</form>
+		    			</div>
+		    		</div>
+	    		</div>
+	    	</div>
+	    	<div class="footer pt_60 background6">
+	    		<div class="container">
+	    			<div class="footer_bottom pb_60">
+	    				<div class="row">
+		    				<div class="col-md-12 col-lg-12">
+		    					<div class="row">
+		    						<div class="col-md-6 col-lg-6">
+		    							<div class="footer-widget">
+		    								<div class="footer_title pb_30">
+												<h3 class="widget_title color_white">Latest Tweets</h3>					
+											</div>
+											<div class="twite color_secondery pb_30">
+												<p class="color_white">Habitasse auctor proin netus nam maecenas aptent risus. Eu scelerisque pretium amet augue varius rutrum nonummy. <a class="color_default" href="#"> httm://envato/cprxetxyt</a></p>
+												<i class="fa fa-clock-o" aria-hidden="true"></i><span>Posted On 13 Feb 2019</span>
+											</div>
+											<div class="twite color_secondery pb_30">
+												<p class="color_white">Dolor mollis cum mi leo massa, nulla vehicula accumsan nisi etiam tristique fermentum erat purus. <a class="color_default" href="#"> http://envato/sotvoisd</a></p>
+												<i class="fa fa-clock-o" aria-hidden="true"></i><span>Posted On 12 Feb 2019</span>
+											</div>
+		    							</div>
+		    						</div>
+		    						<div class="col-md-6 col-lg-6">
+		    							<div class="footer-widget">
+		    								<div class="footer_title pb_30">
+												<h3 class="widget_title color_white">Newsletter Subscribe</h3>		
+											</div>
+											<div class="newsletter">
+												<p class="color_white">Cursus iaculis interdum arcu habitant arcu rhoncus felis dictum tortor enim dignissim per. Risus ad sodales lorem habitasse. Dapibus vel litora rutrum dignissim nisi. Vitae, lacus imperdiet placerat volutpat inceptos.</p>
+												<div class="subscribe mt_30">
+													<div class="input-group">
+												        <input type="email" class="form-control" placeholder="Enter your email">
+												        <button class="btn btn-default" type="submit">Send</button>
+											        </div>
+												</div>
+											</div>
+		    							</div>
+		    						</div>
+		    					</div>
+		    				</div>
+		    			</div>
+	    			</div>
+	    		</div>
+	    		<div class="copyright2 p_20 color_lightgray bg_deepblack text-center"><p>Runaway @ 2019. All Right Reserved.</p></div>
+	    	</div>
+	    </div>
+		<!--	End Contact
+		===================================================-->
+	</div>
+	<!--	Js Links
+	===================================================-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/jquery.pagepiling.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script>
+		var deleteLog = false;
+		//	Pagepiling js
+		//=====================================================
+		$(document).ready(function() {
+	    	$('#pagepiling').pagepiling({
+		    	menu: '#menu',
+		    	anchors: ['page1', 'page2', 'page3', 'page4', 'page5','page6', 'page7', 'page8','page9'],
+		    	loopTop: true,
+		    	loopBottom: true
+		  	});
+	    });
+		//	Sidebar Nav Menu js
+		//=====================================================
+		function openNav() {
+		    document.getElementById("mysidenav").style.width = "150px";
+		}
+		function closeNav() {
+		    document.getElementById("mysidenav").style.width = "0";
+		}
+    </script>
+</body>
 </html>
