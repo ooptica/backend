@@ -521,7 +521,9 @@ ul#menu li a{
    text-align: center;
 }
 .sidebar img{
-    margin-bottom: 60px;
+    margin-top: 60px;
+    height: 50px;
+    width: 50px;
 }
 #mysidenav img{
     width: 50px;
