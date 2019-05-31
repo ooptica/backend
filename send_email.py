@@ -1,28 +1,37 @@
-from flask import Flask, request, Request
+from flask import Flask, request
 from flask_mail import Mail,Message
 
 app = Flask(__name__)
 
-app.config['MAIL_SERVER'] = 'ooptica.ist'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = request.POST["name"]
-app.config['MAIL_PASSWORD'] = request.POST["email"]
-app.config['MAIL_DEFAULT_SENDER'] = None
+app.config['MAIL_SERVER'] = 'smtp.office365.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+
+# TODO: replace those
+app.config['MAIL_USERNAME'] = 'kenan.soylu@ooptica.ist'  # enter your email here
+app.config['MAIL_DEFAULT_SENDER'] = 'kenan.soylu@ooptica.ist' # enter your email here
+app.config['MAIL_PASSWORD'] = '' # enter your password here
 
 mail = Mail(app)
 
-@app.route('/')
-def index():
-	nameofperson = request.POST["name"]
-	emailofperson = request.POST["email"]
-	subjectofperson = request.POST["subject"]
-	messageofperson = request.POST["message"]
-	
-	msg = Message(subjectofperson, sender= emailofperson, recipients=['info@ooptica.ist'])
-	msg.body = messageofperson
+@app.route('/send-mail', methods=['POST'])
+def send_mail():
+	options = request.form["options"]
+	sender_name = options["sender_name"]
+	sender_mail = options["sender_mail"]
+	subject = options["sender_subject"]
+	body = options["sende_body"]
+
+	# Send mail to ooptica
+	msg = Message(subject, recipients=['info@ooptica.ist'])
+	msg.body = body
 	mail.send(msg)
-	
+
+	# Send another mail to sender
+	thanks_msg = Message("Thanks for your message.", recipients=[sender_mail])
+	thanks_msg.body = "We thank you for your message..."
+	mail.send(thanks_msg)
+
 	return 'Message has been sent!'
 	
 if __name__ == '__main__':
