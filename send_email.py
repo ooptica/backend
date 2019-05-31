@@ -9,10 +9,6 @@ app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = request.POST["name"]
 app.config['MAIL_PASSWORD'] = request.POST["email"]
 app.config['MAIL_DEFAULT_SENDER'] = None
-app.config[''] = None
-app.config[''] = None
-app.config[''] = None
-app.config[''] = None
 
 mail = Mail(app)
 
