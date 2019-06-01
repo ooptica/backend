@@ -7,20 +7,26 @@ app.config['MAIL_SERVER'] = 'smtp.office365.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 
+@app.route('/', methods=['POST'])
+def datahandle():
 # TODO: replace those
-app.config['MAIL_USERNAME'] = 'kenan.soylu@ooptica.ist'  # enter your email here
-app.config['MAIL_DEFAULT_SENDER'] = 'kenan.soylu@ooptica.ist' # enter your email here
-app.config['MAIL_PASSWORD'] = '' # enter your password here
+	username = request.form["sender_name"]
+	useremail = request.form["sender-email"]
+	app.config['MAIL_USERNAME'] = username # enter your name here
+	app.config['MAIL_DEFAULT_SENDER'] = useremail # enter your email here
+	app.config['MAIL_PASSWORD'] = '' # enter your password here
+	return request.form["sender-email"]
+
 
 mail = Mail(app)
 
 @app.route('/send-mail', methods=['POST'])
 def send_mail():
-	options = request.form["options"]
-	sender_name = options["sender_name"]
-	sender_mail = options["sender_mail"]
-	subject = options["sender_subject"]
-	body = options["sende_body"]
+	sender_name = request.form["sender_name"]
+	sender_mail = request.form["sender_mail"]
+	subject = request.form["sender_subject"]
+	body = request.form["sender_body"]
+	
 
 	# Send mail to ooptica
 	msg = Message(subject, recipients=['info@ooptica.ist'])
@@ -33,6 +39,6 @@ def send_mail():
 	mail.send(thanks_msg)
 
 	return 'Message has been sent!'
-	
+
 if __name__ == '__main__':
 	app.run()
