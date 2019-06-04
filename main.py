@@ -2,7 +2,7 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, request, abort, Response
+from flask import Flask, request
 from flask_mail import Mail, Message
 import os
 
@@ -17,9 +17,9 @@ app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 
 # TODO: replace those
-#app.config['MAIL_USERNAME'] =  'info@ooptica.ist' # enter your name here
-#app.config['MAIL_DEFAULT_SENDER'] = 'info@ooptica.ist' # enter your email here
-#app.config['MAIL_PASSWORD'] = '' # enter your password here
+app.config['MAIL_USERNAME'] =  '' # enter your name here
+app.config['MAIL_DEFAULT_SENDER'] = '' # enter your email here
+app.config['MAIL_PASSWORD'] = '' # enter your password here
 
 mail = Mail(app)
 
@@ -30,10 +30,9 @@ def send_mail():
 	subject = request.form["sender_subject"]
 	body = request.form["sender_body"]
 	
-
 	# Send mail to ooptica
-	msg = Message(subject, sender = [sender_mail] , recipients=['info@ooptica.ist'])
-	msg.body = body
+	msg = Message(subject, recipients=['info@ooptica.ist'])
+	msg.body = body + "\n" + sender_mail + "\n" + sender_name
 	mail.send(msg)
 
 	# Send another mail to sender
@@ -41,7 +40,7 @@ def send_mail():
 	thanks_msg.body = "We thank you for your message..."
 	mail.send(thanks_msg)
 
-	return 'Message has been sent!'
+	return "OK"
 
 @app.route('/', methods=['GET'])
 def home():

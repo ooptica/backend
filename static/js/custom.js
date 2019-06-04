@@ -295,7 +295,7 @@ if($contact.length){
                 $('#send').attr({'disabled' : 'true', 'value' : 'Sending...' });
                 $.ajax({
                     type: "POST",
-                    url: "email.php",
+                    url: "/send-mail",
                     data: $(form).serialize(),
                     success: function () {
                         $('#send').removeAttr('disabled').attr('value', 'Send');
