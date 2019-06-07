@@ -9,7 +9,8 @@ import os
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
-app = Flask(__name__, static_folder='static', static_url_path='')
+# remove /newSite if you want to use the old site
+app = Flask(__name__, static_folder='static/newSite', static_url_path='')
 app.config.from_object('config')
 
 app.config['MAIL_SERVER'] = 'smtp.office365.com'
@@ -17,9 +18,9 @@ app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 
 # TODO: replace those
-app.config['MAIL_USERNAME'] =  '' # enter your name here
-app.config['MAIL_DEFAULT_SENDER'] = '' # enter your email here
-app.config['MAIL_PASSWORD'] = '' # enter your password here
+app.config['MAIL_USERNAME'] =  'OOptica' # enter your name here
+app.config['MAIL_DEFAULT_SENDER'] = 'contact@ooptica.ist' # enter your email here
+app.config['MAIL_PASSWORD'] = 'C_ontactooptica' # enter your password here
 
 mail = Mail(app)
 
